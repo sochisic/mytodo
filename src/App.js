@@ -4,7 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { Grid } from "../node_modules/@material-ui/core";
 import Header from "./components/header";
 import TodoInput from "./components/todoinput";
-import TodoItem from "./components/todoitem";
+import TodoItemList from "./components/todoitemlist";
+import VisiblityList from "./components/visiblitylist";
 
 const styles = theme => ({
   root: {
@@ -24,7 +25,8 @@ const styles = theme => ({
 class App extends Component {
   state = {
     value: "",
-    todos: []
+    todos: [],
+    completed: false
   };
 
   handleChange = e => this.setState({ value: e.target.value });
@@ -35,7 +37,10 @@ class App extends Component {
     // console.log(this.state.todos);
     this.setState({
       value: "",
-      todos: [...this.state.todos, this.state.value]
+      todos: [
+        ...this.state.todos,
+        { value: this.state.value, completed: false }
+      ]
     });
   };
 
@@ -52,7 +57,8 @@ class App extends Component {
           handleChange={this.handleChange}
           value={this.state.value}
         />
-        <TodoItem todos={this.state.todos} />
+        <VisiblityList />
+        <TodoItemList todos={this.state.todos} />
       </div>
     );
   }

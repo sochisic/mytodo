@@ -4,6 +4,11 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import purple from "@material-ui/core/colors/purple";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import todoApp from './reducers';
+
+let store = createStore(todoApp);
 
 const theme = createMuiTheme({
   palette: {
@@ -13,9 +18,11 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
-    <App />
-  </MuiThemeProvider>,
+  <Provider store={store}>
+    <MuiThemeProvider theme={theme}>
+      <App />
+    </MuiThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );
 registerServiceWorker();
