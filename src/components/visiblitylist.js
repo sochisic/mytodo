@@ -4,8 +4,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+
 
 const styles = theme => ({
   paper: {
@@ -27,16 +26,7 @@ const styles = theme => ({
   }
 });
 
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return todos
-    case 'SHOW_COMPLETED':
-
-  }
-}
-
-const VisiblityList = ({ classes, visiblityFilter, todos }) => {
+const VisiblityList = ({ classes, visiblityFilter }) => {
   return (
     <div>
       <Paper className={classes.paper}>

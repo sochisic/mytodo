@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 });
 
-const TodoItemList = ({ onClick, classes, todos }) => {
+const TodoItemList = ({ onTodoClick, todos }) => {
   return (
     <div>
       {todos.map((todo, index) => (

@@ -12,10 +12,10 @@ import Checkbox from "@material-ui/core/Checkbox";
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const todo = ({ onClick, classes }) => {
+const todo = ({ onTodoClick, classes, key }) => {
   return (
     <Paper
-      key={index}
+      key={key}
       className={classes.paper}
       style={{ marginTop: 10, marginBottom: 10 }}
     >
@@ -23,7 +23,7 @@ const todo = ({ onClick, classes }) => {
         style={{ marginLeft: 'auto', justifySelf: "" }}
         control={
           <Checkbox
-            onClick={onClick}
+            onClick={onTodoClick}
             icon={
               <CircleOutline
                 classes={{
@@ -50,7 +50,7 @@ const todo = ({ onClick, classes }) => {
           width: 280,
           textAlign: "center"
         }}
-        onClick={onClick}
+        onClick={onTodoClick}
       >
         {item.value}
       </Typography>

@@ -5,7 +5,7 @@ import { Grid } from "../node_modules/@material-ui/core";
 import Header from "./components/header";
 import TodoInput from "./components/todoinput";
 import TodoItemList from "./components/todoitemlist";
-import VisiblityList from "./components/visiblitylist";
+import VisiblityListLink from "./containers/visiblityListLink";
 
 const styles = theme => ({
   root: {
@@ -57,7 +57,7 @@ class App extends Component {
           handleChange={this.handleChange}
           value={this.state.value}
         />
-        <VisiblityList />
+        <VisiblityListLink />
         <TodoItemList todos={this.state.todos} />
       </div>
     );
